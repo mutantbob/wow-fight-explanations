@@ -7,10 +7,10 @@ function GSL(sid)
 end
 
 local d = 1;
-local c="s"
+local c="SAY"
 if "raid" == ({IsInInstance()})[2] then
   d = GetRaidDifficulty()
-  c="raid"
+  c="RAID"
 end
 EJ_SetDifficulty(d)
 
@@ -34,10 +34,10 @@ local ArcaneResonance = GSL(5889)
 local ArcaneVelocity = GSL(5888)
 
 
-CHAT(c, "Main tank grab the "..Barrier.." crystal and off tank grab the "..Reversal.." crystal.")
-CHAT(c, Reversal.." tank use your macro to steal "..LightningFist..". Later use Fists to interrupt "..Epicenter..".")
-CHAT(c, "If the Epicenter can not be interrupted the Barrier tank should protect the raid.")
-CHAT(c, "Every time you steal Lightning Fist, taunt off the Barrier tank.  He will taunt back once he loses his "..LightningLash.." stacks and your Reversal cooldown will be back.")
-CHAT(c, "Phase 2: use "..Barrier.." to nullify "..DrawFlame..".  You can only do every other one, so arrange to nullify the last one before phase 3.")
-CHAT(c, "Tanks take turns to let "..FlamingSpear.." stacks fall off.")
-CHAT(c, "Phase 3:  Use barrier to protect the raid from "..ArcaneVelocity..".  Tanks take turns to let the "..ArcaneShock.." stacks fall off.")
+SendChatMessage("Main tank grab the "..Barrier.." crystal and off tank grab the "..Reversal.." crystal.", c)
+SendChatMessage(Reversal.." tank use your macro to steal "..LightningFist..". Later use Fists to interrupt "..Epicenter..".", c)
+SendChatMessage("If the Epicenter can not be interrupted the Barrier tank should protect the raid.", c)
+SendChatMessage("Every time you steal Lightning Fist, taunt off the Barrier tank.  He will taunt back once he loses his "..LightningLash.." stacks and your Reversal cooldown will be back.", c)
+SendChatMessage("Phase 2: use "..Barrier.." to nullify "..DrawFlame..".  You can only do every other one, so arrange to nullify the last one before phase 3.", c)
+SendChatMessage("Tanks take turns to let "..FlamingSpear.." stacks fall off.", c)
+SendChatMessage("Phase 3:  Use barrier to protect the raid from "..ArcaneVelocity..".  Tanks take turns to let the "..ArcaneShock.." stacks fall off.", c)

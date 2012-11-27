@@ -5,7 +5,14 @@ function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]
 end
-EJ_SetDifficulty(1) -- 10 normal
+
+local d = 1;
+local c="SAY"
+if "raid" == ({IsInInstance()})[2] then
+  d = GetRaidDifficulty()
+  c="RAID"
+end
+EJ_SetDifficulty(d)
 
 
 local Qiang = GSL(5841)
@@ -23,12 +30,9 @@ local UndyingShadow = GSL(5854)
 local CoalescingShadows = GSL(5855)
 
 
-local c="raid"
-
-
-CHAT(c, "At the pull and as long as "..Qiang.." is active stack on the tank, or "..MassiveAttacks.." will destroy him.")
-CHAT(c, "Run out of "..Annihilate.." and re-stack on the tank.  Dodge "..FlankingOrders.." and re-stack on the tank.")
-CHAT(c, "For "..MaddeningShout.." stack up and do non-DoT AoE.  Do not DoT your fellow players or "..Pestilence..".")
-CHAT(c, "Spread out for "..Subetai.." so that fewer people get "..PinningArrow..".")
-CHAT(c, "Dodge "..Volley.." and run away from "..Pillage..".")
-CHAT(c, "For "..Zian.." if you are the target of "..UndyingShadow..", get clear of the raid while everyone blasts it down.")
+SendChatMessage("At the pull and as long as "..Qiang.." is active stack on the tank, or "..MassiveAttacks.." will destroy him.", c)
+SendChatMessage("Run out of "..Annihilate.." and re-stack on the tank.  Dodge "..FlankingOrders.." and re-stack on the tank.", c)
+SendChatMessage("For "..MaddeningShout.." stack up and do non-DoT AoE.  Do not DoT your fellow players or "..Pestilence..".", c)
+SendChatMessage("Spread out for "..Subetai.." so that fewer people get "..PinningArrow..".", c)
+SendChatMessage("Dodge "..Volley.." and run away from "..Pillage..".", c)
+SendChatMessage("For "..Zian.." if you are the target of "..UndyingShadow..", get clear of the raid while everyone blasts it down.", c)

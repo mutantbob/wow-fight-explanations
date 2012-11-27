@@ -6,8 +6,14 @@ function GSL(sid)
     local a={ EJ_GetSectionInfo(sid) }
     return a[9]
 end
-EJ_SetDifficulty(1) -- 10 normal
 
+local d = 1;
+local c="SAY"
+if "raid" == ({IsInInstance()})[2] then
+  d = GetRaidDifficulty()
+  c="RAID"
+end
+EJ_SetDifficulty(d)
 
 local TSW =  GSL(5743)
 local RevSpirit = GSL(6656)
@@ -19,12 +25,9 @@ local totem = GSL(5742)
 local Frenzy = GSL(5759)
 
 
-local c="raid"
-
-
-CHAT(c, TSW.." will kill you in 30 seconds if you don't get "..RevSpirit.." and punch the "..RetSoul.." Button.")
-CHAT(c, "While in "..TSW.." kill "..minions..", or they will pile up and kill the raid.  Make sure to "..RetSoul.." before you are killed.")
-CHAT(c, dolls.." can not enter "..TSW)
-CHAT(c, "To "..crossOver..", stand near the "..totem.." and DPS it down.")
-CHAT(c, "Once Gara'jal starts "..Frenzy.." we lose access to "..TSW..", so we must kill him before the "..minions.." overwhelm the raid.")
+SendChatMessage(TSW.." will kill you in 30 seconds if you don't get "..RevSpirit.." and punch the "..RetSoul.." Button.", c)
+SendChatMessage("While in "..TSW.." kill "..minions..", or they will pile up and kill the raid.  Make sure to "..RetSoul.." before you are killed.", c)
+SendChatMessage(dolls.." can not enter "..TSW, c)
+SendChatMessage("To "..crossOver..", stand near the "..totem.." and DPS it down.", c)
+SendChatMessage("Once Gara'jal starts "..Frenzy.." we lose access to "..TSW..", so we must kill him before the "..minions.." overwhelm the raid.", c)
 
