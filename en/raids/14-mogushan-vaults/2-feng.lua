@@ -1,5 +1,7 @@
 -- Copyright (c) 2012 Robert Forsman
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
+-- ACmenu=raids/Mogu'shan Vaults/Feng
+
 
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
@@ -9,9 +11,13 @@ end
 local d = 1;
 local c="SAY"
 if "raid" == ({IsInInstance()})[2] then
-  d = GetRaidDifficulty()
+  d = GetRaidDifficultyID()
   c="RAID"
 end
+if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
+  c="INSTANCE_CHAT"
+end
+
 EJ_SetDifficulty(d)
 
 
@@ -35,4 +41,4 @@ SendChatMessage("Be ready to dodge "..LightningFist.." in case the boss launches
 SendChatMessage("Phase 2: When you get "..Wildfire.." move out of the raid so that you don't explode fire patches under your teammates.", c)
 SendChatMessage("When Feng does "..DrawFlame.." run out of the way as the patches flow to him.", c)
 SendChatMessage("Phase 3: If you get "..ArcaneResonance.." stand clear of your teammates.  During "..ArcaneVelocity.." stack on the boss for", c)
-SendChatMessage("reduced damage (and maybe "..Barrier..", c).  Resonance victims should be as close as possible without baking their teammates.")
+SendChatMessage("reduced damage (and maybe "..Barrier..").  Resonance victims should be as close as possible without baking their teammates.", c)
