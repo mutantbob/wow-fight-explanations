@@ -3,16 +3,20 @@
 
 
 function GSL(sid)
-    local a={ EJ_GetSectionInfo(sid) }
-    return a[9]
+   local a={ EJ_GetSectionInfo(sid) }
+   return a[9]
 end
 
 local d = 1;
 local c="SAY"
 if "raid" == ({IsInInstance()})[2] then
-  d = GetRaidDifficulty()
+  d = GetRaidDifficultyID()
   c="RAID"
 end
+if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
+  c="INSTANCE_CHAT"
+end
+
 EJ_SetDifficulty(d)
 
 local TSW =  GSL(5743)

@@ -10,9 +10,13 @@ end
 local d = 1;
 local c="SAY"
 if "raid" == ({IsInInstance()})[2] then
-  d = GetRaidDifficulty()
+  d = GetRaidDifficultyID()
   c="RAID"
 end
+if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
+  c="INSTANCE_CHAT"
+end
+
 EJ_SetDifficulty(d)
 
 local LavaWave = GSL(2631)
