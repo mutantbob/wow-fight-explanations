@@ -30,6 +30,6 @@ local TitanGas = GSL(5670)
 
 SendChatMessage("Tanks separate the bosses so that their "..DevastatingCombo.." does not overlap.", c)
 SendChatMessage("Adds are a priority.  If they accumulate healers will be overwhelmed.", c)
-SendChatMessage("DPS, let the tanks get aggro on "..Strength.." before blasting it.  Attack "..Courage.." from behind to kill it before it reaches a tank.", c)
+SendChatMessage("Attack "..Courage.." from behind to kill it before it reaches a tank.  DPS, let the 3rd tank get aggro on "..Strength.." before blasting it.", c)
 SendChatMessage("Get out of the way of "..DevastatingCombo..".  The "..Stomp.." has a 12-yard range.  The others are 25-yard.", c)
 SendChatMessage("During "..TitanGas.." use defensive cooldowns.  Powerful raid-wide healing is required.", c)
