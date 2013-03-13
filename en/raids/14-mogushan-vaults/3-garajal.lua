@@ -4,8 +4,8 @@
 
 
 function GSL(sid)
-    local a={ EJ_GetSectionInfo(sid) }
-    return a[9]
+   local a={ EJ_GetSectionInfo(sid) }
+   return a[9]
 end
 
 local d = 1;

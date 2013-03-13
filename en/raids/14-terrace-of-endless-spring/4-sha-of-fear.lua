@@ -3,6 +3,7 @@
 -- ACmenu=raids/Terrace of Endless Spring/Sha of Fear
 
 
+
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]

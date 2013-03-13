@@ -3,6 +3,7 @@
 -- ACmenu=raids/Mogu'shan Vaults/Elegon
 
 
+
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]
