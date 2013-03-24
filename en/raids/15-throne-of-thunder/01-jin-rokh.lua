@@ -34,5 +34,5 @@ SendChatMessage("Whenever the boss applies "..StaticWound.." to the tank, the ot
 SendChatMessage("Kite the "..FocusedLightning.." to a grate and don't let it explode in "..ConductiveWater..".", c);
 SendChatMessage("Under no circumstances let it touch a "..LightningFissure.." or the raid will be wiped by "..Implosion, c);
 
-SendChatMessage("Stand in "..ConductiveWater.." to get "..Fluidity..", but get out when "..LightningStorm.." converts it to "..ElectrifiedWaters..".")
+SendChatMessage("Stand in "..ConductiveWater.." to get "..Fluidity..", but get out when "..LightningStorm.." converts it to "..ElectrifiedWaters..".", c)
 
