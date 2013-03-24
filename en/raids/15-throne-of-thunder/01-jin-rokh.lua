@@ -11,7 +11,7 @@ end
 local d = 1;
 local c="SAY"
 if "raid" == ({IsInInstance()})[2] then
-    d = GetRaidDifficultyID()
+    d = GetRaidDifficultyID()-2
     c="RAID"
 end
 if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
