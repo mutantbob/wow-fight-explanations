@@ -20,7 +20,7 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
   
 All scripts should include this LUA comment near the top:
 
--- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
+    -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 
 
