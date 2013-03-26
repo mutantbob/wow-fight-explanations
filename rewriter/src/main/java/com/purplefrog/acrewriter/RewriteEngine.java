@@ -29,7 +29,8 @@ public class RewriteEngine
 
             incorporateArbitraryCommands(db);
 
-            return LuaDumper.dumpAsLua(db);
+            dict.put("ArbitCommDB", db);
+            return LuaDumper.dumpAsLuaDict(dict);
 
         } else {
             throw new ParseException("no variable declaration for ArbitCommDB", 0);
@@ -39,7 +40,7 @@ public class RewriteEngine
 
     public static Map<String,Object> incorporateArbitraryCommands(Map<String, Object> db)
     {
-        db.put("debug", "hail bob!");
+//        db.put("debug", "hail bob!");
 
         List<Object> commands = (List<Object>) deref(db, "profiles", "Default", "commands");
         incorporateAC(commands);
