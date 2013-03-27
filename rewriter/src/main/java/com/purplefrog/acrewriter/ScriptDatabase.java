@@ -46,4 +46,40 @@ public class ScriptDatabase
             }
         }
     }
+
+    public static class Statistics
+    {
+        int countWithPath =0;
+        int countWithoutPath = 0;
+        int countExplosions=0;
+
+        public Statistics()
+        {
+            this(getScripts());
+        }
+
+        public Statistics(List<CannedScript> scripts)
+        {
+            for (CannedScript cs : scripts) {
+                try {
+                    if (null == cs.getMenuPath()) {
+                        countWithoutPath++;
+                    } else {
+                        countWithPath++;
+                    }
+                } catch (Exception e) {
+                    logger.warn("malfunction checking canned script", e);
+                    countExplosions++;
+                }
+            }
+        }
+
+        public String report()
+        {
+            return countWithPath+" scripts for the menu.\n"+
+                countWithoutPath+" scripts with no path specification\n"
+                + ( countExplosions==0 ? ""
+                : (countExplosions+" scripts trigger explosions\n") );
+        }
+    }
 }

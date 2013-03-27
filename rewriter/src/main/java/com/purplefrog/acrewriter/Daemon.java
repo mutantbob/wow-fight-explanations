@@ -29,7 +29,22 @@ public class Daemon
         int port = 7262;
         BasicHTTPAcceptLoop loop = new BasicHTTPAcceptLoop(port, registry, Executors.newFixedThreadPool(10));
 
-        System.out.println("listening for connections on http://localhost:" + port + "/");
+        final String listeningMsg = "listening for connections on http://localhost:" + port + "/";
+        System.out.println(listeningMsg);
+
+        {
+            Runnable r = new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            String report = new ScriptDatabase.Statistics().report();
+                            System.out.println(report);
+                            System.out.println(listeningMsg);
+                        }
+                    };
+            new Thread(r, "audit thread").start();
+        }
 
         loop.run();
     }
