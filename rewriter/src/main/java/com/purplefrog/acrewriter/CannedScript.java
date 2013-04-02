@@ -12,25 +12,34 @@ import java.util.regex.*;
  */
 public class CannedScript
 {
-    public File f;
+    public final File f;
+    public final String tag;
     private String scriptText = null;
 
-    public CannedScript(File f)
+    public CannedScript(File f, String tag)
     {
         this.f = f;
+        this.tag = tag;
     }
 
     public String[] getMenuPath()
         throws IOException
     {
-        String text = getScriptText();
-
-        String rval = extractMenuPath(text);
+        String rval = getMenuPathRaw();
         if (null == rval)
             return null;
 
         return rval.split("/");
     }
+
+    public String getMenuPathRaw()
+        throws IOException
+    {
+        String text = getScriptText();
+
+        return extractMenuPath(text);
+    }
+
 
     public String getScriptText()
         throws IOException

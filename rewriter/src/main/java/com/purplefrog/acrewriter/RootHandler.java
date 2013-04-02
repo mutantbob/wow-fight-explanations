@@ -1,15 +1,18 @@
 package com.purplefrog.acrewriter;
 
 import com.purplefrog.apachehttpcliches.*;
+import com.purplefrog.httpcliches.*;
 import org.apache.commons.fileupload.*;
-import org.apache.commons.fileupload.disk.*;
 import org.apache.http.*;
 import org.apache.http.entity.*;
 import org.apache.http.protocol.*;
 import org.apache.log4j.*;
+import org.stringtemplate.v4.*;
 
+import javax.jws.*;
 import java.io.*;
-import java.text.*;
+import java.lang.reflect.*;
+import java.net.*;
 import java.util.*;
 
 /**
@@ -31,12 +34,18 @@ public class RootHandler
 
         EntityAndHeaders x ;
         try {
-            if (rl.getUri().equals("/")) {
+            URI uri =  new URI(rl.getUri());
+            String path = uri.getPath();
+            if (path.equals("/")) {
                 x = rootPage();
-            } else if (rl.getUri().equals("/rewrite")) {
+            } else if (path.equals("/rewrite")) {
                 x = rewrite(httpRequest);
+
+            } else if (path.equals("/raw/")) {
+                x = getRaw(uri, httpRequest, httpContext);
+
             } else {
-                x = EntityAndHeaders.plainPayload(404, "Page not found\n"+rl.getUri(), "text/plain");
+                x = EntityAndHeaders.plainPayload(404, "Page not found\n"+ path, "text/plain");
             }
         } catch (Exception e) {
             logger.warn("malfunction computing result", e);
@@ -45,6 +54,30 @@ public class RootHandler
         }
 
         x.apply(httpResponse);
+    }
+
+    public EntityAndHeaders getRaw(URI uri, HttpRequest httpRequest, HttpContext ctx)
+        throws URISyntaxException, IOException, IllegalAccessException, CGIWebMethod.CGISOAPTransformException, InvocationTargetException
+    {
+        EntityAndHeaders x = ApacheCGIWebMethod.processThingus(this, httpRequest, uri.getPath(), ctx);
+        return x;
+    }
+
+    @WebMethod(operationName = "/raw/")
+    public EntityAndHeaders doRaw(@WebParam(name="menuPath") String menuPath,
+                                  @WebParam CGIEnvironment env)
+    {
+        for (CannedScript cs : ScriptDatabase.getScripts()) {
+            try {
+                if (menuPath .equals(cs.getMenuPathRaw())) {
+                    return EntityAndHeaders.plainTextPayload(200, cs.getScriptText());
+                }
+            } catch (IOException e) {
+                logger.warn("malfunction parsing canned script", e);
+            }
+        }
+
+        return EntityAndHeaders.plainTextPayload(404, "no script with menuPath="+menuPath+"\n");
     }
 
     private EntityAndHeaders rewrite(HttpRequest req)
@@ -64,11 +97,7 @@ public class RootHandler
         RequestContext ctx = new ApacheRequestContext(req);
         List<FileItem> list = base.parseRequest(ctx);
 
-        StringBuilder b = new StringBuilder();
-        for (FileItem fileItem : list) {
-            b.append(fileItem.getFieldName() + "[" +fileItem.getSize()+ "]\n");
-        }
-        String payload = "abacab\n"+b;
+        String payload ;
 
         String lua = findUploadedFilePayload("lua", list);
 
@@ -117,10 +146,33 @@ public class RootHandler
     {
         InputStream istr = getClass().getResourceAsStream("index.html");
 
-        byte[] payload = slurp(istr);
+        String payload = slurp(new InputStreamReader(istr));
+
+        ST st = new ST(HTMLEnabledObject.makeSTGroup(true, '$', '$'), payload);
+
+        st.add("templates", ScriptDatabase.onlyScriptsWithMenuPath());
+
+        payload = st.render();
 
         ContentType cType = ContentType.TEXT_HTML;
-        return new EntityAndHeaders(200, null, new ByteArrayEntity(payload, cType));
+        return new EntityAndHeaders(200, null, new StringEntity(payload, cType));
+    }
+
+    public static String slurp(Reader r)
+        throws IOException
+    {
+        char[] buffer = new char[4<<10];
+
+        StringBuilder rval = new StringBuilder();
+
+        while (true) {
+            int n = r.read(buffer);
+            if (n<1)
+                break;
+            rval.append(buffer, 0, n);
+        }
+
+        return rval.toString();
     }
 
     public static byte[] slurp(InputStream istr)

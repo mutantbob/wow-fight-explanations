@@ -19,11 +19,12 @@ public class ScriptDatabase
     public static List<CannedScript> getScripts()
     {
         List<CannedScript> rval = new ArrayList<CannedScript>();
-        recurseGetScripts(rval, new File("/usr/local/wow-fight-explanations/en/"));
+        File root = new File("/usr/local/wow-fight-explanations/en/");
+        recurseGetScripts(rval, root, new Tagger(root));
         return rval;
     }
 
-    public static void recurseGetScripts(List<CannedScript> dst, File dir)
+    public static void recurseGetScripts(List<CannedScript> dst, File dir, Tagger tagger)
     {
         logger.debug("scanning "+dir);
         File[] subs = dir.listFiles();
@@ -36,13 +37,49 @@ public class ScriptDatabase
 
             if (sub.isFile() && sub.getName().toLowerCase().endsWith(".lua")) {
                 logger.debug("found script "+sub);
-                dst.add(new CannedScript(sub));
+                dst.add(new CannedScript(sub, tagger.tagFor(sub)));
 
             } else if (sub.isDirectory()) {
-                recurseGetScripts(dst, sub);
+                recurseGetScripts(dst, sub, tagger);
 
             } else {
                 logger.debug("ignoring "+sub);
+            }
+        }
+    }
+
+    public static List<CannedScript> onlyScriptsWithMenuPath()
+    {
+        ArrayList<CannedScript> rval = new ArrayList<CannedScript>();
+        for (CannedScript cs : getScripts()) {
+            try {
+                if(cs.getMenuPathRaw()!=null)
+                    rval.add(cs);
+            } catch (IOException e) {
+                logger.debug("bad script "+cs.f, e);
+            }
+        }
+        return rval;
+    }
+
+    public static class Tagger
+    {
+
+        private File root;
+
+        public Tagger(File root)
+        {
+            this.root = root;
+        }
+
+        public String tagFor(File sub)
+        {
+            String a = root.getPath();
+            String b = sub.getPath();
+            if (b.startsWith(a)) {
+                return b.substring(a.length());
+            } else {
+                return sub.getName();
             }
         }
     }
