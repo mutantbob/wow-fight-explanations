@@ -29,9 +29,14 @@ local AnimaFont = GSL(7767)
 local FULL_POWER = GSL(7773)
 
 
-SendChatMessage("Separate the golems to prevent "..AccelerationLink.." and "..Evasive..".", c)
+if  d ~= 5 then
+   SendChatMessage("Separate the golems to prevent "..AccelerationLink.." and "..Evasive..".", c)
+end
 SendChatMessage("Kite the "..CrimsonWake.." and don't drag it through the raid.", c)
 SendChatMessage("Dispel "..MatterSwap.." as soon as the players are healthy enough to survive the damage.", c)
-SendChatMessage("Escape from the "..AnimaRing.." before it blows you up.", c)
 SendChatMessage("If you have "..AnimaFont..", stand away from other players.", c)
-SendChatMessage("Kill the boss before he drains all the golems and reaches "..FULL_POWER..".", c)
+if d ~= 5 then
+   SendChatMessage("Kill the boss before he drains all the golems and reaches "..FULL_POWER..".", c)
+end
+
+SendChatMessage("Escape from the "..AnimaRing.." before it blows you up.  Tank swap!", c)
