@@ -22,8 +22,8 @@ EJ_SetDifficulty(d)
 
 local Hatchlings = GSL(7350)
 local Fledglings = GSL(7351)
-local Juveniles = GSL(7602)
-local TalonRake = GSL(7828)
+local Juveniles = GSL(7607)
+local TalonRake = GSL(7364)
 local DaedalianWings = GSL(7359)
 local DownDraft = GSL(7370)
 

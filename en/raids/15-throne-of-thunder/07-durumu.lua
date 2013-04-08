@@ -21,8 +21,9 @@ end
 EJ_SetDifficulty(d)
 
 
-local ForceOfWill = GSL(6905)
+local ForceOfWill = GSL(7859)
 local LingeringGaze = GSL(6911)
+if (d==5) then LingeringGaze = GSL(7751) end
 local LifeDrain = GSL(6906)
 local CrimsonFog = GSL(6892)
 local AzureFog = GSL(6898)

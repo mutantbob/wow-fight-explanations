@@ -20,7 +20,7 @@ end
 
 EJ_SetDifficulty(d)
 
-local Rampage = GSL(7802)
+local Rampage = GSL(7807)
 
 SendChatMessage("Tanks, point the head breath weapons away from the raid and the other tank.  Left head left, right head right.", c)
 SendChatMessage("During "..Rampage.." raid stack for heals.  Tanks move into position to tank the new pair of heads.", c)
