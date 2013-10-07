@@ -33,7 +33,7 @@ local DisintegrationBeam = GSL(6882)
 local SeriousWound = GSL(6880)
 local ArterialCut = GSL(6881)
 
-SendChatMessage("Get out of "..LingeringGaze..".  Take turns interrupting "..LifeDrain.." beam.", c)
+SendChatMessage("Run to the edge and drop the "..LingeringGaze.." puddle.  Take turns interrupting "..LifeDrain.." beam.", c)
 if d==5 then
    SendChatMessage("Blue and Red cone targets sweep to illuminate "..CrimsonFog.." and "..AzureFog.." then stop.  DPS burn Azure, Crimson, and "..AmberFog..".", c)
 else
