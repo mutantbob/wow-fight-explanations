@@ -44,7 +44,7 @@ local Discharge = GSL(6190)
 
 
 SendChatMessage("Only the tank should be in front of Elegon because of "..CelestialBreath..".", c)
-if d ~= 5 then
+if d ~= 7 then
     SendChatMessage("When the "..CelestialProtector.." materializes, tanks swap.  The protector tank should taunt and run to the edge of the platform to ditch "..Overcharged.." stacks.", c)
     SendChatMessage("Make sure the protector is on the platform so he is not protected by "..Phasing..".", c)
     SendChatMessage("When protector's health is <25% kite it off the platform because "..TotalAnnihilation.." plus "..StabilityFlux.." enhanced by "..TouchTitans.." is deadly.", c)

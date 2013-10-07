@@ -46,7 +46,7 @@ SendChatMessage("Get into the circle to catch "..BouncingBolt.."s, or you will h
 SendChatMessage("Stack to divide damage from "..StaticShock..".  Spread out for "..BallLightning.." spawn, then stack and AoE.", c)
 SendChatMessage("Get out of "..LightningWhip..".  Don't get blown off the platform by "..ViolentGaleWinds..".", c)
 SendChatMessage("Tank Lei Shen near a pillar to prevent "..DischargedEnergy..".  Rotate pillars to minimize level-up.  In phase 2 don't get knocked off the platform by "..FusionSlash..".", c)
-if  d ~=5 then
+if  d ~= 7 then
    SendChatMessage("For "..Decapitate..": tank swap and victim run away to reduce damage.", c)
    SendChatMessage("Tanks swap for "..Decapitate..", "..FusionSlash..", and "..OverwhelmingPower..".", c)
 end

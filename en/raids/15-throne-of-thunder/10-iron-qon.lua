@@ -36,7 +36,7 @@ local Freeze = GSL(6915)
 local FreezeCyclone = GSL(6920)
 local Windstorm = GSL(6877)
 
-if 5==d then
+if 7==d then
    UnleashedFlame = GSL(6974)
 end
 
