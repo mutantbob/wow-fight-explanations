@@ -19,6 +19,7 @@ end
 
 EJ_SetDifficulty(d)
 
+local Impale = GSL(6874)
 local ThrowSpear = GSL(6875)
 local UnleashedFlame = GSL(6870)
 local MoltenOverload = GSL(6973)
@@ -32,6 +33,7 @@ if 5==d then
    UnleashedFlame = GSL(6974)
 end
 
+SendChatMessage("Tanks take turns to let "..Impale.." stacks fall off.",c)
 SendChatMessage("Occasionally cluster 3 people to trigger "..UnleashedFlame.." and prevent "..MoltenOverload..".",c)
 SendChatMessage("Dodge "..ThrowSpear..".  Run out of "..Windstorm.." and group up at the entrance.",c)
 SendChatMessage("Top off the raid before "..Freeze.." shatters.  Never get caught by a "..FreezeCyclone..".",c)
