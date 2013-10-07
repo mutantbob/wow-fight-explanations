@@ -1,6 +1,6 @@
 -- Copyright (c) 2013 Robert Forsman
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
-
+-- ACmenu=raids/Mogu'shan Vaults/Spirit Kings
 
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
