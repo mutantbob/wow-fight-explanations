@@ -46,7 +46,7 @@ function computeMailAges(db, character, perServer)
     local rval = { ["count"] = 0 }
     for q, m in ipairs (db.Mails) do
         rval.count = rval.count + 1
-        local expire = db.lastUpdate + 24*60*60*m.daysLeft
+        local expire = m.lastCheck + 24*60*60*m.daysLeft
         --print ((m.returned and "1" or "nil").."\t"..(m.sender~= character and 1 or 0).."\t"..(perServer[m.sender] or "nil"))
         if (not m.returned and m.sender ~= character and perServer[m.sender]) then
             -- expire  = expire + 30*24*60*60
