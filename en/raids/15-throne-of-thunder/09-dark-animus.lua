@@ -40,3 +40,4 @@ if d ~= 5 then
 end
 
 SendChatMessage("Escape from the "..AnimaRing.." before it blows you up.  Tank swap!", c)
+SendChatMessage("AoE the adds to start, but single-target when they get low.  If you AoE them to death at once, the raid will be wiped by freshly activated adds running wild.", c)
