@@ -29,9 +29,9 @@ local DownDraft = GSL(7370)
 
 
 
-SendChatMessage("Nest team look for the red column of light.  Kill the "..Hatchlings.." in the nest before they can become "..Fledglings.." and "..Juveniles..".", c)
 SendChatMessage("Tanks take turns so "..TalonRake.." can fall off.", c)
-SendChatMessage("After clearing a nest, step in the red feather to gain "..DaedalianWings..".", c)
 SendChatMessage("Try not to get blown off the platform during "..DownDraft..".  Your wings can make you immune to it.", c)
+SendChatMessage("Nest team look for the red column of light (high or low).  Kill the "..Hatchlings.." in the nest before they can become "..Fledglings.." and "..Juveniles..".", c)
+SendChatMessage("After clearing a nest, step in the red feather to gain "..DaedalianWings..".  If the nest team fails, we will all die.", c)
 
 
