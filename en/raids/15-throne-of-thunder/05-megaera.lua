@@ -21,8 +21,11 @@ end
 EJ_SetDifficulty(d)
 
 local Rampage = GSL(7807)
+local Cinders = GSL(7000)
+local AcidRain = GSL(7011)
 
 SendChatMessage("Tanks, point the head breath weapons away from the raid and the other tank.  Left head left, right head right.", c)
+SendChatMessage("Dodge "..AcidRain..".  If you get "..Cinders.." run out of the raid so the dispel creates fire in a safe place.", c)
 SendChatMessage("During "..Rampage.." raid stack for heals.  Tanks move into position to tank the new pair of heads.", c)
 SendChatMessage("Head kill order is Green, Red, Green, Red, Green, Red...  Don't touch Blue.", c)
 
