@@ -1,6 +1,5 @@
--- Copyright (c) 2012 Robert Forsman
+-- Copyright (c) 2013 Robert Forsman
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
--- ACmenu=raids/Mogu'shan Vaults/Feng (for tanks)
 
 
 function GSL(sid)
@@ -8,17 +7,23 @@ function GSL(sid)
    return a[9]
 end
 
-local d = 1;
+local d = 3;
 local c="SAY"
-if "raid" == ({IsInInstance()})[2] then
-  d = GetRaidDifficultyID()-2
-  c="RAID"
+if (IsInGroup(LE_PARTY_CATEGORY_HOME)) then
+   if (IsInRaid()) then
+      c = "RAID"
+      d = GetRaidDifficultyID()
+   else
+      c = "PARTY"
+   end
 end
 if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
 
 EJ_SetDifficulty(d)
+
+-- end regularHeader.lua
 
 
 
