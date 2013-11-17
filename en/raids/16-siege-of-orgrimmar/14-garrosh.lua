@@ -23,3 +23,23 @@ end
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
+
+-- ACmenu=raids/Siege of Orgrimmar/Garrosh
+
+GrippingDespair = GSL(8316)
+SiegeEngineer = GSL(8298)
+IronStar = GSL(8300)
+Typhoon = GetSpellLink(97636)
+AncestralChainHeal = GSL(8296)
+FarseerWolfRiders = GSL(8294)
+DesecratedWeapons = GSL(8304)
+TouchOfYShaarj = GSL(8311)
+Bloodlust = GetSpellLink(71975)
+Stage3 = GSL(8319)
+
+SendChatMessage("Tank swap for "..GrippingDespair..".", c)
+SendChatMessage("Kill southwest "..SiegeEngineer.." to prevent an "..IronStar.." from rolling over our half of the room.  "..Typhoon.." adds into the other Iron Star if possible.", c)
+SendChatMessage("Interrupt "..AncestralChainHeal.." and kill "..FarseerWolfRiders..".", c)
+SendChatMessage("Ranged alternate between {square} and {diamond} as "..DesecratedWeapons.."s funk up the place.  Ranged Blast the Desecrated Weapon to shrink the puddle of doom.", c)
+SendChatMessage("Blast victims of "..TouchOfYShaarj.." before they can MC the entire raid.", c)
+SendChatMessage("Save "..Bloodlust.." for "..Stage3.." when Garrosh mutates and all hell breaks loose.", c)

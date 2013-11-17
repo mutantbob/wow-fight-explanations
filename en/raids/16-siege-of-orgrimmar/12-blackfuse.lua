@@ -23,3 +23,24 @@ end
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
+
+-- ACmenu=raids/Siege of Orgrimmar/Siegecrafter Blackfuse
+
+AutomatedShredder = GSL(8199)
+ElectrostaticCharge = GSL(8197)
+SerratedSlash = GSL(8196)
+ProtectiveFrenzy = GSL(8303)
+TransportPipes = GSL(8206)
+TheAssemblyLine = GSL(8202)
+CrawlerMines = GSL(8212)
+LaserTurrets = GSL(8208)
+MissileTurrets = GSL(8204)
+ShockwaveMissile = GSL(8205)
+Superheated = GSL(8209)
+
+
+SendChatMessage("Tanks swap whenever an "..AutomatedShredder.." joins the fight.  The stacks of "..ElectrostaticCharge.." help kill the shredder.  ", c)
+SendChatMessage("Tank the Shredder in the "..SerratedSlash..".  Pop a defensive cooldown to survive "..ProtectiveFrenzy.." when the shredder dies.", c)
+SendChatMessage("Use northwest "..TransportPipes.." to get on "..TheAssemblyLine.." and destroy "..CrawlerMines.." before they can be assembled.", c)
+SendChatMessage("Dodge the "..ShockwaveMissile.." rings.  Kite the "..Superheated.." away from the raid and don't stand in it.", c)
+SendChatMessage("Priority is "..CrawlerMines..".  Raid stand in the northwest to maximize DPS time on the mines.", c)
