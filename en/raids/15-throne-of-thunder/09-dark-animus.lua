@@ -2,7 +2,6 @@
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
 -- ACmenu=raids/Throne of Thunder/Dark Animus
 
-
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]
@@ -22,6 +21,8 @@ if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
 
+lfr = ( d==5 )
+
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
@@ -36,13 +37,13 @@ local AnimaFont = GSL(7767)
 local FULL_POWER = GSL(7773)
 
 
-if  d ~= 7 then
+if  not lfr then
    SendChatMessage("Separate the golems to prevent "..AccelerationLink.." and "..Evasive..".", c)
 end
 SendChatMessage("Kite the "..CrimsonWake.." and don't drag it through the raid.", c)
 SendChatMessage("Dispel "..MatterSwap.." as soon as the players are healthy enough to survive the damage.", c)
 SendChatMessage("If you have "..AnimaFont..", stand away from other players.", c)
-if d ~= 7 then
+if not lfr then
    SendChatMessage("Kill the boss before he drains all the golems and reaches "..FULL_POWER..".", c)
 end
 

@@ -2,7 +2,6 @@
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
 -- ACmenu=raids/Throne of Thunder/Iron Qon
 
-
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]
@@ -22,6 +21,8 @@ if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
 
+lfr = ( d==5 )
+
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
@@ -36,7 +37,7 @@ local Freeze = GSL(6915)
 local FreezeCyclone = GSL(6920)
 local Windstorm = GSL(6877)
 
-if 7==d then
+if lfr then
    UnleashedFlame = GSL(6974)
 end
 

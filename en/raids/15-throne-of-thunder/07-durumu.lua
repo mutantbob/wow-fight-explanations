@@ -2,7 +2,6 @@
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
 -- ACmenu=raids/Throne of Thunder/Durumu
 
-
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]
@@ -22,6 +21,8 @@ if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
 
+lfr = (d==5)
+
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
@@ -29,7 +30,7 @@ EJ_SetDifficulty(d)
 
 local ForceOfWill = GSL(7859)
 local LingeringGaze = GSL(6911)
-if (d==5) then LingeringGaze = GSL(7751) end
+if (lfr) then LingeringGaze = GSL(7751) end
 local LifeDrain = GSL(6906)
 local CrimsonFog = GSL(6892)
 local AzureFog = GSL(6898)
@@ -40,11 +41,11 @@ local SeriousWound = GSL(6880)
 local ArterialCut = GSL(6881)
 
 SendChatMessage("Run to the edge and drop the "..LingeringGaze.." puddle.  Take turns interrupting "..LifeDrain.." beam.", c)
-if d==5 then
+if lfr then
    SendChatMessage("Blue and Red cone targets sweep to illuminate "..CrimsonFog.." and "..AzureFog.." then stop.  DPS burn Azure, Crimson, and "..AmberFog..".", c)
 else
    SendChatMessage("Blue cone target stand still and never illuminate the "..AzureFog..".", c)
-   SendChatMessage("Sweep the red cone to reveal the "..CrimsonFog..".  Kill all Crimson Fog to end the cone phase.", c)
+   SendChatMessage("Sweep the red cone to reveal the "..CrimsonFog..".  Kill all Fogs to end the cone phase.", c)
 end
 SendChatMessage("Navigate the "..EyeSore.."s maze to avoid getting 1-shot by the "..DisintegrationBeam..".", c)
 SendChatMessage("Dodge "..ForceOfWill.." to avoid getting knocked off the platform.", c)

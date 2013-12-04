@@ -2,7 +2,6 @@
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
 -- ACmenu=raids/Mogu'shan Vaults/Elegon
 
-
 function GSL(sid)
    local a={ EJ_GetSectionInfo(sid) }
    return a[9]
@@ -21,6 +20,8 @@ end
 if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
+
+lfr = ( d==5 )
 
 EJ_SetDifficulty(d)
 
@@ -44,7 +45,7 @@ local Discharge = GSL(6190)
 
 
 SendChatMessage("Only the tank should be in front of Elegon because of "..CelestialBreath..".", c)
-if d ~= 7 then
+if not lfr then
     SendChatMessage("When the "..CelestialProtector.." materializes, tanks swap.  The protector tank should taunt and run to the edge of the platform to ditch "..Overcharged.." stacks.", c)
     SendChatMessage("Make sure the protector is on the platform so he is not protected by "..Phasing..".", c)
     SendChatMessage("When protector's health is <25% kite it off the platform because "..TotalAnnihilation.." plus "..StabilityFlux.." enhanced by "..TouchTitans.." is deadly.", c)
