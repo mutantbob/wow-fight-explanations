@@ -20,6 +20,8 @@ if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
 
+lfr = ( d==5 )
+
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
@@ -48,3 +50,4 @@ SendChatMessage("Point "..Kaztik.."'s "..SonicProjection.." away from the raid."
 SendChatMessage("Don't stand in the "..FieryEdge.." lasers and separate to reduce damage.", c)
 SendChatMessage("Kill the "..Bloods.." before they can heal "..Skeer..".", c)
 SendChatMessage("During "..Korven.." blast the "..EncaseInAmber.." or the encased boss will heal.  Failure to do this can drag out the fight until the healers run OOM.", c)
+SendChatMessage("Follow the {skull}, and watch for shifts.  Split DPS is totally wasted.", c)
