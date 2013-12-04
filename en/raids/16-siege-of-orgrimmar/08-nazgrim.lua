@@ -20,6 +20,8 @@ if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) then
   c="INSTANCE_CHAT"
 end
 
+lfr = ( d==5 )
+
 EJ_SetDifficulty(d)
 
 -- end regularHeader.lua
