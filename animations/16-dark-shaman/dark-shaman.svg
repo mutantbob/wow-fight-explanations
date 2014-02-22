@@ -255,7 +255,8 @@
     <g
        id="tank_icon"
        transform="translate(3.2469869,-96.394477)"
-       inkscape:label="#g3961">
+       inkscape:label="#g3961"
+       pointer-events="none">
       <path
          transform="translate(-151.62309,-117.84374)"
          d="M 161.81399,214.78873 A 13.222437,13.222437 0 1 1 135.36912,214.78873 13.222437,13.222437 0 1 1 161.81399,214.78873 z"

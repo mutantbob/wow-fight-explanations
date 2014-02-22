@@ -90,6 +90,7 @@ function DarkShaman(svg)
 	this.ashenWall.setAttributeNS(null, "stroke-opacity", "1");
 	this.ashenWall.setAttributeNS(null, "x", "0");
 	this.ashenWall.setAttributeNS(null, "y", "0");
+	this.ashenWall.setAttributeNS(null, "pointer-events", "none");
 	mobs.insertBefore(this.ashenWall, mobs.firstChild);
     } else {
 	this.ashenWall = this.svg.getElementById("wall")
