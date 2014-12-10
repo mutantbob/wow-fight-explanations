@@ -40,6 +40,10 @@ local PheremoneTrail = GSL(6269)
 
 SendChatMessage("Stay out of the purple circle or you will trigger "..Crush..", doing heavy damage to the whole raid.", c)
 SendChatMessage("Target a leg and get in the blue dashed circle to exploit "..WeakPoint.." while you blast it to cause "..BrokenLeg..".  Once all legs are broken, DPS the body.", c)
-SendChatMessage("If you get "..Pheremones.." run to the tanks and pass it to them.  Everyone stay out of "..PheremoneTrail..".", c)
+SendChatMessage("If you get "..Pheremones.." creep along the outside edge slowly; dropping puddles.  Everyone stay out of "..PheremoneTrail..".", c)
 SendChatMessage("Tanks use "..Pheremones.." to kite the boss around the arena.  Make sure at least two people are in the "..FuriousSwipe.." cone, or he gets a stack of "..Fury..".", c)
-SendChatMessage("Tanks trade "..Pheremones.." periodically to prevent "..Pungency.." from stacking too high.  In normal mode every Pheremone swap triggers a "..Crush..".", c)
+if lfr then
+    -- SendChatMessage("Tanks trade "..Pheremones.." periodically to prevent "..Pungency.." from stacking too high", c)
+else
+    SendChatMessage("Every Pheremone swap triggers a "..Crush..".", c)
+end
