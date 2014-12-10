@@ -44,4 +44,5 @@ SendChatMessage("Tank swap on "..FearsomeRoar.." and its variations.  Only tanks
 SendChatMessage("Don't be behind him during "..TailLash..".  Smash any "..IcyBlood.." tombs.", c)
 SendChatMessage("Stacking "..Bloodied.." players triggers "..Phase2..".", c)
 SendChatMessage("Do not be in front of the boss during Stage 2 or "..BloodFrenzy.." will KILL YOU!", c)
-SendChatMessage("Kill the "..Jailer.." and use his key to free a "..PrisonersOfWar..".  Order is "..Akolik..", "..Goral..", "..Montak..".", c)
+SendChatMessage("Kill the "..Jailer.." and use his key to free a "..PrisonersOfWar..".", c)
+SendChatMessage("Order is "..Akolik..", "..Goral..", "..Montak..".", c)
