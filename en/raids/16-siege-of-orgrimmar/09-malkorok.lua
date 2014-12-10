@@ -40,7 +40,7 @@ DisplacedEnergy = GSL(7882)
 
 SendChatMessage(AncientMiasma.." turns all heals into "..AncientBarrier..". Healers maintain this shield on the entire raid.", c)
 SendChatMessage("Tank swap to let "..FatalStrike.." fall off.", c)
-SendChatMessage("Let one person stand in the "..ImplodingEnergy..", or the whole raid gets blasted. ", c)
+SendChatMessage("Let one person stand in each "..ImplodingEnergy..", or the whole raid gets blasted. ", c)
 SendChatMessage("Get out of "..ArcingSmash.." before "..Breath..".  Spread out to minimize "..SeismicSlam.." damage.", c)
 
 SendChatMessage("Healing is possible during "..BloodRage..".", c)

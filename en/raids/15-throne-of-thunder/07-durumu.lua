@@ -44,8 +44,8 @@ SendChatMessage("Run to the edge and drop the "..LingeringGaze.." puddle.  Take 
 if lfr then
    SendChatMessage("Blue and Red cone targets sweep to illuminate "..CrimsonFog.." and "..AzureFog.." then stop.  DPS burn Azure, Crimson, and "..AmberFog..".", c)
 else
-   SendChatMessage("Blue cone target stand still and never illuminate the "..AzureFog..".", c)
-   SendChatMessage("Sweep the red cone to reveal the "..CrimsonFog..".  Kill all Fogs to end the cone phase.", c)
+    SendChatMessage("Blue cone target stand still and never illuminate the "..AzureFog..".", c)
+    SendChatMessage("Sweep the red cone to reveal the "..CrimsonFog..".  Kill all Crimson Fog to end the cone phase.", c)
 end
 SendChatMessage("Navigate the "..EyeSore.."s maze to avoid getting 1-shot by the "..DisintegrationBeam..".", c)
 SendChatMessage("Dodge "..ForceOfWill.." to avoid getting knocked off the platform.", c)
