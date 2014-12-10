@@ -1,6 +1,6 @@
 -- Copyright (c) 2013 Robert Forsman
 -- This work is made available under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license, http://creativecommons.org/licenses/by-nc-sa/3.0/
--- ACMenu=mail audit
+-- ACmenu=mail audit
 
 
 --
@@ -43,14 +43,17 @@ function computeMailAges(db, character, perServer)
         return nil
     end
     
+    ignore = { ["Great-father Winter"] = true }
+    
     local rval = { ["count"] = 0 }
     for q, m in ipairs (db.Mails) do
         rval.count = rval.count + 1
         local expire = m.lastCheck + 24*60*60*m.daysLeft
         --print ((m.returned and "1" or "nil").."\t"..(m.sender~= character and 1 or 0).."\t"..(perServer[m.sender] or "nil"))
-        if (not m.returned and m.sender ~= character and perServer[m.sender]) then
-            -- expire  = expire + 30*24*60*60
-            
+        if ( ignore[m.sender]) then
+            print ("ignoring "..m.sender) 
+        elseif (not m.returned and m.sender ~= character and perServer[m.sender] ) then
+            -- expire  = expire + 30*24*60*60            
             rval.returning = min(rval.returning, expire)
         else
             rval.expire = min(rval.expire, expire)
@@ -185,9 +188,9 @@ for idx, ages in pairs(report) do
     
     pad = string.rep(" ", 20-#character)
     print ( ""
-    .. "["..(ages.count).."]"
-    .."   "..death1.."   "..death2
-    .."   "..doomString(ages.lastUpdate, now)
+        .. "["..(ages.count).."]"
+        .."   "..death1.."   "..death2
+        .."   "..doomString(ages.lastUpdate, now)
         .."  "..character --..pad
         
     )
